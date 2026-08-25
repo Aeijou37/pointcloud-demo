@@ -50,14 +50,53 @@ It complements my industrial shoe-sole project (which involves 3D reconstruction
 
 ## 🚀 Quick Start
 
-### Run locally
+### Option 1: Run on Google Colab (Free, No GPU Needed)
+
+The easiest way to try this demo — no installation required.
+
+1. Open a new Colab notebook at [colab.research.google.com](https://colab.research.google.com)
+2. Run the following code in cells:
+
+```python
+# Cell 1: Clone + Install
+!git clone https://github.com/Aeijou37/pointcloud-demo.git
+%cd pointcloud-demo
+!pip install -r requirements.txt
+```
+
+```python
+# Cell 2: Launch Demo
+from src.app import PointCloudApp
+app = PointCloudApp(device="cpu")
+demo = app.build()
+demo.launch(share=True)
+```
+
+3. Click the public URL (`https://xxxx.gradio.live`)
+4. Select a preset shape (e.g., "chair") → Mode: "both" → Click "运行"
+
+> The Colab link is temporary (72 hours). For permanent hosting, deploy to HuggingFace Space.
+
+### Option 2: Run Locally
 
 ```bash
+git clone https://github.com/Aeijou37/pointcloud-demo.git
+cd pointcloud-demo
 pip install -r requirements.txt
 python src/app.py
 ```
 
 Open `http://localhost:7860`. Select a preset shape (e.g., "chair") and click "运行".
+
+### Option 3: Deploy to HuggingFace Space (Permanent)
+
+1. Register at [huggingface.co/join](https://huggingface.co/join)
+2. Create a Space at [huggingface.co/new-space](https://huggingface.co/new-space)
+   - Name: `pointcloud-demo`
+   - SDK: **Gradio**
+   - Hardware: **CPU (free)**
+3. Upload all files (README already has HF metadata)
+4. Get permanent URL: `https://<username>-pointcloud-demo.hf.space`
 
 ### Run with GPU
 
